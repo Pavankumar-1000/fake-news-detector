@@ -1,0 +1,13 @@
+streamlit
+scikit-learn
+joblib
+beautifulsoup4
+requests
+nltk
+textblob
+pandas
+googlesearch-python
+kaggle
+google-generativeai
+google-ai-generativelanguage
+language-tool-python
