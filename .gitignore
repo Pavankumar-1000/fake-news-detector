@@ -1,6 +1,43 @@
-.env
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+*.pyd
 __pycache__/
-*.py[cod]
+
+# Ignore virtual environment
 venv/
+env/
 .venv/
-*.log
+
+# Ignore IDE specific files (e.g., VS Code, PyCharm)
+.vscode/
+.idea/
+
+# Ignore system-specific files (macOS, Windows, etc.)
+.DS_Store
+Thumbs.db
+
+# Ignore Streamlit secrets file (local secrets.toml)
+.streamlit/secrets.toml
+
+# Ignore environment files (useful for local development)
+.env
+.env.local
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore pytest cache and coverage reports
+.coverage
+.coverage.*
+.cache
+
+# Ignore deployment logs or build directories
+build/
+dist/
+*.egg-info/
+
+# Ignore any other temporary or backup files
+*.bak
+*.swp
+*.swo

@@ -1,16 +1,15 @@
 import os
 import re
 import json
-from dotenv import load_dotenv
+import streamlit as st
 import google.generativeai as genai
 from google.api_core.exceptions import ResourceExhausted
 
-# Load API Key
-load_dotenv()
-GENAI_API_KEY = os.getenv("GEMINI_API_KEY")
+# Load API Key from Streamlit secrets
+GENAI_API_KEY = st.secrets["API_KEYS"]["GEMINI_API_KEY"]
 
 if not GENAI_API_KEY:
-    raise ValueError("Gemini API Key not found. Add GEMINI_API_KEY to your .env file.")
+    raise ValueError("Gemini API Key not found. Add GEMINI_API_KEY to your .streamlit/secrets.toml.")
 
 # Configure Gemini
 genai.configure(api_key=GENAI_API_KEY)
@@ -18,8 +17,6 @@ model = genai.GenerativeModel("gemini-1.5-flash")  # Or use "gemini-1.5-pro"
 
 def fact_check_with_gemini(news_text: str) -> dict:
     news_text = news_text.strip()
-
-    
 
     prompt = f"""
 You are a smart AI fact-checker.

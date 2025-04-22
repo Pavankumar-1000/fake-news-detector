@@ -1,17 +1,15 @@
-# utils/newsapi_verifier.py
-
 import requests
-import os
+import streamlit as st
 
-# Load your API key (replace with your key or use environment variable)
-NEWSAPI_KEY = os.getenv("NEWSAPI_KEY", "a29d68220d844851be5d03fa398128ab")
+# Load your API key from Streamlit secrets
+NEWSAPI_KEY = st.secrets["API_KEYS"]["NEWSAPI_KEY"]
 
 def verify_with_newsapi(query):
     """
     Verifies news using NewsAPI by searching for matching headlines or descriptions.
     Returns source names and URLs if found.
     """
-    if NEWSAPI_KEY == "your_newsapi_key_here":
+    if not NEWSAPI_KEY:
         return {"status": "error", "message": "NewsAPI key not set", "sources": [], "urls": []}
 
     url = f"https://newsapi.org/v2/everything?q={query}&language=en&pageSize=10&apiKey={NEWSAPI_KEY}"
