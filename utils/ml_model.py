@@ -1,7 +1,6 @@
 import joblib
 
-# Load the trained model
-model = joblib.load('model/model.pkl')
+
 
 def predict_news(text):
     """

@@ -11,3 +11,4 @@ kaggle
 google-generativeai
 google-ai-generativelanguage
 language-tool-python
+python-dotenv
